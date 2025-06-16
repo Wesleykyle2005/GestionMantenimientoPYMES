@@ -1,12 +1,20 @@
 ﻿using SharedModels.ModelsDTO.Empresa;
 using SharedModels.ModelsDTO.Equipo;
 using SharedModels.ModelsDTO.Mantenimiento;
+using SharedModels.ModelsDTO.Usuario;
 
 namespace GestionMantenimientoPYMES;
 
 public partial class InicioForm : MaterialSkin.Controls.MaterialForm
 {
     private readonly ApiClient _apiClient;
+
+    // ============================
+    #region VARIABLES USUARIOS
+    // ============================
+    private UsuarioResponseDTO? usuarioSeleccionado = null;
+    private List<EmpresaResponseDTO> empresasUsuarios = new List<EmpresaResponseDTO>();
+    #endregion
 
     // ============================
     #region VARIABLES MANTENIMIENTO
@@ -28,6 +36,8 @@ public partial class InicioForm : MaterialSkin.Controls.MaterialForm
         ConfigurarEquiposDataGridView();
         //Mantenimientos
         ConfigurarMantenimientoDataGridView();
+        // Usuarios
+        ConfigurarUsuariosDataGridView();
         // Form Load
         this.Load += InicioForm_Load;
         #endregion
@@ -45,6 +55,10 @@ public partial class InicioForm : MaterialSkin.Controls.MaterialForm
         CargarTipoMantenimientoCombo();
         CargarEstadoMantenimientoCombo();
         await LoadMantenimientosAsync();
+        await CargarEmpresasUsuariosComboAsync();
+        CargarRolesCombo();
+        await LoadUsuariosAsync();
+
 
 
         #endregion
@@ -642,6 +656,222 @@ public partial class InicioForm : MaterialSkin.Controls.MaterialForm
         DescripcionMantenimientoTextBox.Text = "";
         EstadoMantenimientoComboBox.SelectedIndex = 0;
         mantenimientoSeleccionado = null;
+    }
+
+    #endregion
+
+
+    // ============================
+    #region USUARIOS - CONFIGURACIÓN Y CARGA DE DATOS
+    // ============================
+
+    private async Task CargarEmpresasUsuariosComboAsync()
+    {
+        try
+        {
+            var empresasList = await _apiClient.Empresa.GetAllAsync();
+            empresasUsuarios = empresasList.ToList();
+            EmpresaUsuarioComboBox.DataSource = empresasUsuarios;
+            EmpresaUsuarioComboBox.DisplayMember = "Nombre";
+            EmpresaUsuarioComboBox.ValueMember = "EmpresaId";
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error al cargar empresas para usuarios: " + ex.Message);
+        }
+    }
+
+    private void CargarRolesCombo()
+    {
+        RolUsuarioComboBox.Items.Clear();
+        RolUsuarioComboBox.Items.Add("Administrador");
+        RolUsuarioComboBox.Items.Add("Técnico");
+        RolUsuarioComboBox.Items.Add("Usuario");
+        RolUsuarioComboBox.SelectedIndex = 0;
+    }
+
+    public async Task LoadUsuariosAsync()
+    {
+        try
+        {
+            // 1. Obtén empresas para mostrar el nombre
+            var empresasDict = empresasUsuarios.ToDictionary(e => e.EmpresaId, e => e.Nombre);
+
+            // 2. Obtén usuarios
+            var usuarios = await _apiClient.Usuario.GetAllAsync();
+            var usuariosList = usuarios.ToList();
+
+            // 3. Rellena el nombre de la empresa en cada usuario (si tu DTO lo permite)
+            foreach (var u in usuariosList)
+            {
+                if (empresasDict.TryGetValue(u.EmpresaId, out var nombreEmpresa))
+                    u.EmpresaNombre = nombreEmpresa;
+                else
+                    u.EmpresaNombre = "Desconocida";
+            }
+
+            UsuariosDataGridView.DataSource = null;
+            UsuariosDataGridView.DataSource = usuariosList;
+
+            // 4. Oculta columnas de IDs y contraseña
+            if (UsuariosDataGridView.Columns["UsuarioId"] != null)
+                UsuariosDataGridView.Columns["UsuarioId"].Visible = false;
+            if (UsuariosDataGridView.Columns["EmpresaId"] != null)
+                UsuariosDataGridView.Columns["EmpresaId"].Visible = false;
+            if (UsuariosDataGridView.Columns["Contraseña"] != null)
+                UsuariosDataGridView.Columns["Contraseña"].Visible = false;
+
+            // 5. Ajusta encabezado para EmpresaNombre
+            if (UsuariosDataGridView.Columns["EmpresaNombre"] != null)
+                UsuariosDataGridView.Columns["EmpresaNombre"].HeaderText = "Empresa";
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error al cargar usuarios: {ex.Message}");
+        }
+    }
+
+    private void ConfigurarUsuariosDataGridView()
+    {
+        UsuariosDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        UsuariosDataGridView.MultiSelect = false;
+        UsuariosDataGridView.ReadOnly = true;
+        UsuariosDataGridView.AllowUserToAddRows = false;
+        UsuariosDataGridView.AllowUserToDeleteRows = false;
+        UsuariosDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        UsuariosDataGridView.BackgroundColor = Color.White;
+        UsuariosDataGridView.DefaultCellStyle.BackColor = Color.White;
+        UsuariosDataGridView.DefaultCellStyle.ForeColor = Color.Black;
+        UsuariosDataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(35, 57, 93);
+        UsuariosDataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        UsuariosDataGridView.EnableHeadersVisualStyles = false;
+    }
+
+
+    #endregion
+
+    // ============================
+    #region USUARIOS - CRUD Y EVENTOS
+    // ============================
+
+    private void UsuariosDataGridView_SelectionChanged(object sender, EventArgs e)
+    {
+        if (UsuariosDataGridView.SelectedRows.Count > 0)
+        {
+            var row = UsuariosDataGridView.SelectedRows[0].DataBoundItem as UsuarioResponseDTO;
+            if (row != null)
+            {
+                usuarioSeleccionado = row;
+                NombreUsuarioTextBox.Text = row.Nombre;
+                CorreoUsuarioTextBox.Text = row.Email;
+                RolUsuarioComboBox.SelectedItem = row.Rol;
+                // Contraseña NO se muestra por seguridad
+                var empresa = empresasUsuarios.FirstOrDefault(emp => emp.EmpresaId == row.EmpresaId);
+                if (empresa != null)
+                    EmpresaUsuarioComboBox.SelectedItem = empresa;
+            }
+        }
+    }
+
+    private async void CrearUsuarioButton_Click(object sender, EventArgs e)
+    {
+        if (EmpresaUsuarioComboBox.SelectedItem is not EmpresaResponseDTO empresaSeleccionada)
+        {
+            MessageBox.Show("Selecciona una empresa.");
+            return;
+        }
+
+        var dto = new UsuarioCreateDTO
+        {
+            Nombre = NombreUsuarioTextBox.Text,
+            Email = CorreoUsuarioTextBox.Text,
+            Rol = RolUsuarioComboBox.SelectedItem?.ToString() ?? "Usuario",
+            Contraseña = ContraseñaUsuarioTextBox.Text,
+            EmpresaId = empresaSeleccionada.EmpresaId
+        };
+
+        try
+        {
+            await _apiClient.Usuario.CreateAsync(dto);
+            await LoadUsuariosAsync();
+            MessageBox.Show("Usuario creado correctamente.");
+            LimpiarCamposUsuario();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error al crear usuario: {ex.Message}");
+        }
+    }
+
+    private async void ActualizarUsuarioButton_Click(object sender, EventArgs e)
+    {
+        if (usuarioSeleccionado == null)
+        {
+            MessageBox.Show("Selecciona un usuario para actualizar.");
+            return;
+        }
+        if (EmpresaUsuarioComboBox.SelectedItem is not EmpresaResponseDTO empresaSeleccionada)
+        {
+            MessageBox.Show("Selecciona una empresa.");
+            return;
+        }
+
+        var dto = new UsuarioUpdateDTO
+        {
+            UsuarioId = usuarioSeleccionado.UsuarioId,
+            Nombre = NombreUsuarioTextBox.Text,
+            Email = CorreoUsuarioTextBox.Text,
+            Rol = RolUsuarioComboBox.SelectedItem?.ToString() ?? "Usuario",
+            Contraseña = ContraseñaUsuarioTextBox.Text, // Solo si quieres permitir cambiarla
+            EmpresaId = empresaSeleccionada.EmpresaId
+        };
+
+        try
+        {
+            await _apiClient.Usuario.UpdateAsync(dto.UsuarioId, dto);
+            await LoadUsuariosAsync();
+            MessageBox.Show("Usuario actualizado correctamente.");
+            LimpiarCamposUsuario();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error al actualizar usuario: {ex.Message}");
+        }
+    }
+
+    private async void BorrarUsuarioButton_Click(object sender, EventArgs e)
+    {
+        if (usuarioSeleccionado == null)
+        {
+            MessageBox.Show("Selecciona un usuario para borrar.");
+            return;
+        }
+
+        var confirm = MessageBox.Show("¿Seguro que deseas eliminar este usuario?", "Confirmar", MessageBoxButtons.YesNo);
+        if (confirm == DialogResult.Yes)
+        {
+            try
+            {
+                await _apiClient.Usuario.DeleteAsync(usuarioSeleccionado.UsuarioId);
+                await LoadUsuariosAsync();
+                MessageBox.Show("Usuario eliminado correctamente.");
+                LimpiarCamposUsuario();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar usuario: {ex.Message}");
+            }
+        }
+    }
+
+    private void LimpiarCamposUsuario()
+    {
+        NombreUsuarioTextBox.Text = "";
+        CorreoUsuarioTextBox.Text = "";
+        RolUsuarioComboBox.SelectedIndex = 0;
+        ContraseñaUsuarioTextBox.Text = "";
+        EmpresaUsuarioComboBox.SelectedIndex = 0;
+        usuarioSeleccionado = null;
     }
 
     #endregion

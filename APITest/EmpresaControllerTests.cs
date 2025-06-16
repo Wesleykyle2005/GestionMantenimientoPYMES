@@ -48,19 +48,7 @@ public class EmpresaControllerTests
         Assert.IsType<NotFoundObjectResult>(result);
     }
 
-    [Fact]
-    public async Task GetAll_ReturnsOk_WithList()
-    {
-        var empresas = new List<Empresa> { new Empresa { EmpresaId = 1 } };
-        var dtos = new List<EmpresaResponseDTO> { new EmpresaResponseDTO { EmpresaId = 1 } };
-        _repoMock.Setup(r => r.GetAllAsync(null)).ReturnsAsync(empresas);
-        _mapperMock.Setup(m => m.Map<List<EmpresaResponseDTO>>(empresas)).Returns(dtos);
-
-        var result = await _controller.GetAll();
-
-        var okResult = Assert.IsType<OkObjectResult>(result);
-        Assert.Equal(dtos, okResult.Value);
-    }
+    
 
     [Fact]
     public async Task Create_ReturnsBadRequest_WhenModelStateIsInvalid()

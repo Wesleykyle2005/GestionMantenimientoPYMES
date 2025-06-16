@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioForm));
             materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             tabPageEmpresa = new TabPage();
@@ -85,7 +86,6 @@
             TipoMantenimientoComboBox = new MaterialSkin.Controls.MaterialComboBox();
             materialTabSelector3 = new MaterialSkin.Controls.MaterialTabSelector();
             tabPage4 = new TabPage();
-            materialTabSelector4 = new MaterialSkin.Controls.MaterialTabSelector();
             tableLayoutPanel7 = new TableLayoutPanel();
             UsuariosDataGridView = new DataGridView();
             panel4 = new Panel();
@@ -103,6 +103,8 @@
             RolUsuarioComboBox = new MaterialSkin.Controls.MaterialComboBox();
             NombreUsuarioTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             CorreoUsuarioTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
+            materialTabSelector4 = new MaterialSkin.Controls.MaterialTabSelector();
+            pictureBox1 = new PictureBox();
             materialTabControl1.SuspendLayout();
             tabPageEmpresa.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -124,6 +126,7 @@
             ((System.ComponentModel.ISupportInitialize)UsuariosDataGridView).BeginInit();
             panel4.SuspendLayout();
             tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // materialTabSelector1
@@ -148,13 +151,13 @@
             materialTabControl1.Controls.Add(tabPage4);
             materialTabControl1.Depth = 0;
             materialTabControl1.Dock = DockStyle.Fill;
-            materialTabControl1.Location = new Point(3, 24);
+            materialTabControl1.Location = new Point(3, 64);
             materialTabControl1.Margin = new Padding(0);
             materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             materialTabControl1.Multiline = true;
             materialTabControl1.Name = "materialTabControl1";
             materialTabControl1.SelectedIndex = 0;
-            materialTabControl1.Size = new Size(794, 423);
+            materialTabControl1.Size = new Size(794, 383);
             materialTabControl1.TabIndex = 1;
             // 
             // tabPageEmpresa
@@ -165,7 +168,7 @@
             tabPageEmpresa.Location = new Point(4, 24);
             tabPageEmpresa.Name = "tabPageEmpresa";
             tabPageEmpresa.Padding = new Padding(3);
-            tabPageEmpresa.Size = new Size(786, 395);
+            tabPageEmpresa.Size = new Size(786, 355);
             tabPageEmpresa.TabIndex = 0;
             tabPageEmpresa.Text = "Empresas";
             // 
@@ -181,16 +184,16 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tableLayoutPanel1.Size = new Size(780, 339);
+            tableLayoutPanel1.Size = new Size(780, 299);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // EmpresaDataGridView
             // 
             EmpresaDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             EmpresaDataGridView.Dock = DockStyle.Fill;
-            EmpresaDataGridView.Location = new Point(3, 206);
+            EmpresaDataGridView.Location = new Point(3, 182);
             EmpresaDataGridView.Name = "EmpresaDataGridView";
-            EmpresaDataGridView.Size = new Size(774, 130);
+            EmpresaDataGridView.Size = new Size(774, 114);
             EmpresaDataGridView.TabIndex = 0;
             EmpresaDataGridView.SelectionChanged += EmpresaDataGridView_SelectionChanged;
             // 
@@ -200,7 +203,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(774, 197);
+            panel1.Size = new Size(774, 173);
             panel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -231,7 +234,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            tableLayoutPanel2.Size = new Size(774, 197);
+            tableLayoutPanel2.Size = new Size(774, 173);
             tableLayoutPanel2.TabIndex = 9;
             // 
             // BorrarButton
@@ -242,12 +245,12 @@
             BorrarButton.Dock = DockStyle.Fill;
             BorrarButton.HighEmphasis = true;
             BorrarButton.Icon = null;
-            BorrarButton.Location = new Point(519, 159);
+            BorrarButton.Location = new Point(519, 140);
             BorrarButton.Margin = new Padding(4, 6, 4, 6);
             BorrarButton.MouseState = MaterialSkin.MouseState.HOVER;
             BorrarButton.Name = "BorrarButton";
             BorrarButton.NoAccentTextColor = Color.Empty;
-            BorrarButton.Size = new Size(251, 17);
+            BorrarButton.Size = new Size(251, 13);
             BorrarButton.TabIndex = 2;
             BorrarButton.Text = "Borrar";
             BorrarButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -270,7 +273,7 @@
             TelefonoTextBox.HideSelection = true;
             TelefonoTextBox.InsertKeyMode = InsertKeyMode.Default;
             TelefonoTextBox.LeadingIcon = null;
-            TelefonoTextBox.Location = new Point(260, 108);
+            TelefonoTextBox.Location = new Point(260, 95);
             TelefonoTextBox.Mask = "000000";
             TelefonoTextBox.MaxLength = 32767;
             TelefonoTextBox.MouseState = MaterialSkin.MouseState.OUT;
@@ -305,12 +308,12 @@
             ActualizarButton.Dock = DockStyle.Fill;
             ActualizarButton.HighEmphasis = true;
             ActualizarButton.Icon = null;
-            ActualizarButton.Location = new Point(261, 159);
+            ActualizarButton.Location = new Point(261, 140);
             ActualizarButton.Margin = new Padding(4, 6, 4, 6);
             ActualizarButton.MouseState = MaterialSkin.MouseState.HOVER;
             ActualizarButton.Name = "ActualizarButton";
             ActualizarButton.NoAccentTextColor = Color.Empty;
-            ActualizarButton.Size = new Size(250, 17);
+            ActualizarButton.Size = new Size(250, 13);
             ActualizarButton.TabIndex = 1;
             ActualizarButton.Text = "Actualizar";
             ActualizarButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -324,10 +327,10 @@
             materialLabel3.Depth = 0;
             materialLabel3.Dock = DockStyle.Left;
             materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel3.Location = new Point(3, 105);
+            materialLabel3.Location = new Point(3, 92);
             materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel3.Name = "materialLabel3";
-            materialLabel3.Size = new Size(64, 39);
+            materialLabel3.Size = new Size(64, 34);
             materialLabel3.TabIndex = 5;
             materialLabel3.Text = "Telefono";
             // 
@@ -340,7 +343,7 @@
             DireccionTextBox.Dock = DockStyle.Fill;
             DireccionTextBox.Font = new Font("Segoe UI", 8F);
             DireccionTextBox.HideSelection = true;
-            DireccionTextBox.Location = new Point(260, 60);
+            DireccionTextBox.Location = new Point(260, 53);
             DireccionTextBox.MaxLength = 32767;
             DireccionTextBox.MouseState = MaterialSkin.MouseState.OUT;
             DireccionTextBox.Name = "DireccionTextBox";
@@ -351,7 +354,7 @@
             DireccionTextBox.SelectionLength = 0;
             DireccionTextBox.SelectionStart = 0;
             DireccionTextBox.ShortcutsEnabled = true;
-            DireccionTextBox.Size = new Size(252, 33);
+            DireccionTextBox.Size = new Size(252, 28);
             DireccionTextBox.TabIndex = 7;
             DireccionTextBox.TabStop = false;
             DireccionTextBox.TextAlign = HorizontalAlignment.Left;
@@ -365,12 +368,12 @@
             CrearButton.Dock = DockStyle.Fill;
             CrearButton.HighEmphasis = true;
             CrearButton.Icon = null;
-            CrearButton.Location = new Point(4, 159);
+            CrearButton.Location = new Point(4, 140);
             CrearButton.Margin = new Padding(4, 6, 4, 6);
             CrearButton.MouseState = MaterialSkin.MouseState.HOVER;
             CrearButton.Name = "CrearButton";
             CrearButton.NoAccentTextColor = Color.Empty;
-            CrearButton.Size = new Size(249, 17);
+            CrearButton.Size = new Size(249, 13);
             CrearButton.TabIndex = 0;
             CrearButton.Text = "Crear";
             CrearButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -387,7 +390,7 @@
             NombreTextBox.Dock = DockStyle.Fill;
             NombreTextBox.Font = new Font("Segoe UI", 8F);
             NombreTextBox.HideSelection = true;
-            NombreTextBox.Location = new Point(260, 12);
+            NombreTextBox.Location = new Point(260, 11);
             NombreTextBox.MaxLength = 32767;
             NombreTextBox.MouseState = MaterialSkin.MouseState.OUT;
             NombreTextBox.Name = "NombreTextBox";
@@ -398,7 +401,7 @@
             NombreTextBox.SelectionLength = 0;
             NombreTextBox.SelectionStart = 0;
             NombreTextBox.ShortcutsEnabled = true;
-            NombreTextBox.Size = new Size(252, 33);
+            NombreTextBox.Size = new Size(252, 28);
             NombreTextBox.TabIndex = 6;
             NombreTextBox.TabStop = false;
             NombreTextBox.TextAlign = HorizontalAlignment.Left;
@@ -410,10 +413,10 @@
             materialLabel2.Depth = 0;
             materialLabel2.Dock = DockStyle.Left;
             materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(3, 57);
+            materialLabel2.Location = new Point(3, 50);
             materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel2.Name = "materialLabel2";
-            materialLabel2.Size = new Size(67, 39);
+            materialLabel2.Size = new Size(67, 34);
             materialLabel2.TabIndex = 4;
             materialLabel2.Text = "Dirección";
             // 
@@ -423,10 +426,10 @@
             materialLabel1.Depth = 0;
             materialLabel1.Dock = DockStyle.Left;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(3, 9);
+            materialLabel1.Location = new Point(3, 8);
             materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
-            materialLabel1.Size = new Size(57, 39);
+            materialLabel1.Size = new Size(57, 34);
             materialLabel1.TabIndex = 3;
             materialLabel1.Text = "Nombre";
             // 
@@ -438,7 +441,7 @@
             tabPageEquipos.Location = new Point(4, 24);
             tabPageEquipos.Name = "tabPageEquipos";
             tabPageEquipos.Padding = new Padding(3);
-            tabPageEquipos.Size = new Size(786, 395);
+            tabPageEquipos.Size = new Size(786, 355);
             tabPageEquipos.TabIndex = 1;
             tabPageEquipos.Text = " Equipos";
             // 
@@ -454,16 +457,16 @@
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tableLayoutPanel3.Size = new Size(780, 339);
+            tableLayoutPanel3.Size = new Size(780, 299);
             tableLayoutPanel3.TabIndex = 3;
             // 
             // EquiposDataGridView
             // 
             EquiposDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             EquiposDataGridView.Dock = DockStyle.Fill;
-            EquiposDataGridView.Location = new Point(3, 206);
+            EquiposDataGridView.Location = new Point(3, 182);
             EquiposDataGridView.Name = "EquiposDataGridView";
-            EquiposDataGridView.Size = new Size(774, 130);
+            EquiposDataGridView.Size = new Size(774, 114);
             EquiposDataGridView.TabIndex = 0;
             EquiposDataGridView.SelectionChanged += EquiposDataGridView_SelectionChanged;
             // 
@@ -473,7 +476,7 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(774, 197);
+            panel2.Size = new Size(774, 173);
             panel2.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -512,7 +515,7 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            tableLayoutPanel4.Size = new Size(774, 197);
+            tableLayoutPanel4.Size = new Size(774, 173);
             tableLayoutPanel4.TabIndex = 9;
             // 
             // BorrarEquipoButton
@@ -523,12 +526,12 @@
             BorrarEquipoButton.Dock = DockStyle.Fill;
             BorrarEquipoButton.HighEmphasis = true;
             BorrarEquipoButton.Icon = null;
-            BorrarEquipoButton.Location = new Point(312, 159);
+            BorrarEquipoButton.Location = new Point(312, 140);
             BorrarEquipoButton.Margin = new Padding(4, 6, 4, 6);
             BorrarEquipoButton.MouseState = MaterialSkin.MouseState.HOVER;
             BorrarEquipoButton.Name = "BorrarEquipoButton";
             BorrarEquipoButton.NoAccentTextColor = Color.Empty;
-            BorrarEquipoButton.Size = new Size(146, 17);
+            BorrarEquipoButton.Size = new Size(146, 13);
             BorrarEquipoButton.TabIndex = 2;
             BorrarEquipoButton.Text = "Borrar";
             BorrarEquipoButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -544,12 +547,12 @@
             ActualizarEquipoButton.Dock = DockStyle.Fill;
             ActualizarEquipoButton.HighEmphasis = true;
             ActualizarEquipoButton.Icon = null;
-            ActualizarEquipoButton.Location = new Point(158, 159);
+            ActualizarEquipoButton.Location = new Point(158, 140);
             ActualizarEquipoButton.Margin = new Padding(4, 6, 4, 6);
             ActualizarEquipoButton.MouseState = MaterialSkin.MouseState.HOVER;
             ActualizarEquipoButton.Name = "ActualizarEquipoButton";
             ActualizarEquipoButton.NoAccentTextColor = Color.Empty;
-            ActualizarEquipoButton.Size = new Size(146, 17);
+            ActualizarEquipoButton.Size = new Size(146, 13);
             ActualizarEquipoButton.TabIndex = 1;
             ActualizarEquipoButton.Text = "Actualizar";
             ActualizarEquipoButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -563,10 +566,10 @@
             materialLabel4.Depth = 0;
             materialLabel4.Dock = DockStyle.Left;
             materialLabel4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel4.Location = new Point(3, 105);
+            materialLabel4.Location = new Point(3, 92);
             materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel4.Name = "materialLabel4";
-            materialLabel4.Size = new Size(46, 39);
+            materialLabel4.Size = new Size(46, 34);
             materialLabel4.TabIndex = 5;
             materialLabel4.Text = "Marca";
             // 
@@ -579,7 +582,7 @@
             TipoEquipoTextBox.Dock = DockStyle.Fill;
             TipoEquipoTextBox.Font = new Font("Segoe UI", 8F);
             TipoEquipoTextBox.HideSelection = true;
-            TipoEquipoTextBox.Location = new Point(157, 60);
+            TipoEquipoTextBox.Location = new Point(157, 53);
             TipoEquipoTextBox.MaxLength = 32767;
             TipoEquipoTextBox.MouseState = MaterialSkin.MouseState.OUT;
             TipoEquipoTextBox.Name = "TipoEquipoTextBox";
@@ -590,7 +593,7 @@
             TipoEquipoTextBox.SelectionLength = 0;
             TipoEquipoTextBox.SelectionStart = 0;
             TipoEquipoTextBox.ShortcutsEnabled = true;
-            TipoEquipoTextBox.Size = new Size(148, 33);
+            TipoEquipoTextBox.Size = new Size(148, 28);
             TipoEquipoTextBox.TabIndex = 7;
             TipoEquipoTextBox.TabStop = false;
             TipoEquipoTextBox.TextAlign = HorizontalAlignment.Left;
@@ -604,12 +607,12 @@
             CrearEquipoButton.Dock = DockStyle.Fill;
             CrearEquipoButton.HighEmphasis = true;
             CrearEquipoButton.Icon = null;
-            CrearEquipoButton.Location = new Point(4, 159);
+            CrearEquipoButton.Location = new Point(4, 140);
             CrearEquipoButton.Margin = new Padding(4, 6, 4, 6);
             CrearEquipoButton.MouseState = MaterialSkin.MouseState.HOVER;
             CrearEquipoButton.Name = "CrearEquipoButton";
             CrearEquipoButton.NoAccentTextColor = Color.Empty;
-            CrearEquipoButton.Size = new Size(146, 17);
+            CrearEquipoButton.Size = new Size(146, 13);
             CrearEquipoButton.TabIndex = 0;
             CrearEquipoButton.Text = "Crear";
             CrearEquipoButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -626,7 +629,7 @@
             NombreEquipoTextBox.Dock = DockStyle.Fill;
             NombreEquipoTextBox.Font = new Font("Segoe UI", 8F);
             NombreEquipoTextBox.HideSelection = true;
-            NombreEquipoTextBox.Location = new Point(157, 12);
+            NombreEquipoTextBox.Location = new Point(157, 11);
             NombreEquipoTextBox.MaxLength = 32767;
             NombreEquipoTextBox.MouseState = MaterialSkin.MouseState.OUT;
             NombreEquipoTextBox.Name = "NombreEquipoTextBox";
@@ -637,7 +640,7 @@
             NombreEquipoTextBox.SelectionLength = 0;
             NombreEquipoTextBox.SelectionStart = 0;
             NombreEquipoTextBox.ShortcutsEnabled = true;
-            NombreEquipoTextBox.Size = new Size(148, 33);
+            NombreEquipoTextBox.Size = new Size(148, 28);
             NombreEquipoTextBox.TabIndex = 6;
             NombreEquipoTextBox.TabStop = false;
             NombreEquipoTextBox.TextAlign = HorizontalAlignment.Left;
@@ -649,10 +652,10 @@
             materialLabel5.Depth = 0;
             materialLabel5.Dock = DockStyle.Left;
             materialLabel5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel5.Location = new Point(3, 57);
+            materialLabel5.Location = new Point(3, 50);
             materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel5.Name = "materialLabel5";
-            materialLabel5.Size = new Size(33, 39);
+            materialLabel5.Size = new Size(33, 34);
             materialLabel5.TabIndex = 4;
             materialLabel5.Text = "Tipo";
             // 
@@ -662,10 +665,10 @@
             materialLabel6.Depth = 0;
             materialLabel6.Dock = DockStyle.Left;
             materialLabel6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel6.Location = new Point(3, 9);
+            materialLabel6.Location = new Point(3, 8);
             materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel6.Name = "materialLabel6";
-            materialLabel6.Size = new Size(57, 39);
+            materialLabel6.Size = new Size(57, 34);
             materialLabel6.TabIndex = 3;
             materialLabel6.Text = "Nombre";
             // 
@@ -674,7 +677,7 @@
             materialLabel7.AutoSize = true;
             materialLabel7.Depth = 0;
             materialLabel7.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel7.Location = new Point(311, 9);
+            materialLabel7.Location = new Point(311, 8);
             materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel7.Name = "materialLabel7";
             materialLabel7.Size = new Size(54, 19);
@@ -686,7 +689,7 @@
             materialLabel8.AutoSize = true;
             materialLabel8.Depth = 0;
             materialLabel8.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel8.Location = new Point(311, 57);
+            materialLabel8.Location = new Point(311, 50);
             materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel8.Name = "materialLabel8";
             materialLabel8.Size = new Size(50, 19);
@@ -698,7 +701,7 @@
             materialLabel9.AutoSize = true;
             materialLabel9.Depth = 0;
             materialLabel9.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel9.Location = new Point(311, 105);
+            materialLabel9.Location = new Point(311, 92);
             materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel9.Name = "materialLabel9";
             materialLabel9.Size = new Size(63, 19);
@@ -714,7 +717,7 @@
             ModeloEquipoTextBox.Dock = DockStyle.Fill;
             ModeloEquipoTextBox.Font = new Font("Segoe UI", 8F);
             ModeloEquipoTextBox.HideSelection = true;
-            ModeloEquipoTextBox.Location = new Point(465, 12);
+            ModeloEquipoTextBox.Location = new Point(465, 11);
             ModeloEquipoTextBox.MaxLength = 32767;
             ModeloEquipoTextBox.MouseState = MaterialSkin.MouseState.OUT;
             ModeloEquipoTextBox.Name = "ModeloEquipoTextBox";
@@ -725,7 +728,7 @@
             ModeloEquipoTextBox.SelectionLength = 0;
             ModeloEquipoTextBox.SelectionStart = 0;
             ModeloEquipoTextBox.ShortcutsEnabled = true;
-            ModeloEquipoTextBox.Size = new Size(148, 33);
+            ModeloEquipoTextBox.Size = new Size(148, 28);
             ModeloEquipoTextBox.TabIndex = 12;
             ModeloEquipoTextBox.TabStop = false;
             ModeloEquipoTextBox.TextAlign = HorizontalAlignment.Left;
@@ -740,7 +743,7 @@
             MarcaEquipoTextBox.Dock = DockStyle.Fill;
             MarcaEquipoTextBox.Font = new Font("Segoe UI", 8F);
             MarcaEquipoTextBox.HideSelection = true;
-            MarcaEquipoTextBox.Location = new Point(157, 108);
+            MarcaEquipoTextBox.Location = new Point(157, 95);
             MarcaEquipoTextBox.MaxLength = 32767;
             MarcaEquipoTextBox.MouseState = MaterialSkin.MouseState.OUT;
             MarcaEquipoTextBox.Name = "MarcaEquipoTextBox";
@@ -751,7 +754,7 @@
             MarcaEquipoTextBox.SelectionLength = 0;
             MarcaEquipoTextBox.SelectionStart = 0;
             MarcaEquipoTextBox.ShortcutsEnabled = true;
-            MarcaEquipoTextBox.Size = new Size(148, 33);
+            MarcaEquipoTextBox.Size = new Size(148, 28);
             MarcaEquipoTextBox.TabIndex = 14;
             MarcaEquipoTextBox.TabStop = false;
             MarcaEquipoTextBox.TextAlign = HorizontalAlignment.Left;
@@ -772,7 +775,7 @@
             EstadoEquipoComboBox.FormattingEnabled = true;
             EstadoEquipoComboBox.IntegralHeight = false;
             EstadoEquipoComboBox.ItemHeight = 43;
-            EstadoEquipoComboBox.Location = new Point(465, 60);
+            EstadoEquipoComboBox.Location = new Point(465, 53);
             EstadoEquipoComboBox.MaxDropDownItems = 4;
             EstadoEquipoComboBox.MouseState = MaterialSkin.MouseState.OUT;
             EstadoEquipoComboBox.Name = "EstadoEquipoComboBox";
@@ -795,7 +798,7 @@
             EmpresaEquipoComboBox.FormattingEnabled = true;
             EmpresaEquipoComboBox.IntegralHeight = false;
             EmpresaEquipoComboBox.ItemHeight = 43;
-            EmpresaEquipoComboBox.Location = new Point(465, 108);
+            EmpresaEquipoComboBox.Location = new Point(465, 95);
             EmpresaEquipoComboBox.MaxDropDownItems = 4;
             EmpresaEquipoComboBox.MouseState = MaterialSkin.MouseState.OUT;
             EmpresaEquipoComboBox.Name = "EmpresaEquipoComboBox";
@@ -825,7 +828,7 @@
             tabPageMantenimiento.Location = new Point(4, 24);
             tabPageMantenimiento.Name = "tabPageMantenimiento";
             tabPageMantenimiento.Padding = new Padding(3);
-            tabPageMantenimiento.Size = new Size(786, 395);
+            tabPageMantenimiento.Size = new Size(786, 355);
             tabPageMantenimiento.TabIndex = 2;
             tabPageMantenimiento.Text = "Mantenimiento";
             tabPageMantenimiento.UseVisualStyleBackColor = true;
@@ -843,16 +846,16 @@
             tableLayoutPanel5.RowCount = 2;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tableLayoutPanel5.Size = new Size(780, 339);
+            tableLayoutPanel5.Size = new Size(780, 299);
             tableLayoutPanel5.TabIndex = 4;
             // 
             // MantenimientoDataGridView
             // 
             MantenimientoDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             MantenimientoDataGridView.Dock = DockStyle.Fill;
-            MantenimientoDataGridView.Location = new Point(3, 206);
+            MantenimientoDataGridView.Location = new Point(3, 182);
             MantenimientoDataGridView.Name = "MantenimientoDataGridView";
-            MantenimientoDataGridView.Size = new Size(774, 130);
+            MantenimientoDataGridView.Size = new Size(774, 114);
             MantenimientoDataGridView.TabIndex = 0;
             MantenimientoDataGridView.SelectionChanged += MantenimientoDataGridView_SelectionChanged;
             // 
@@ -862,7 +865,7 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(3, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(774, 197);
+            panel3.Size = new Size(774, 173);
             panel3.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -899,7 +902,7 @@
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            tableLayoutPanel6.Size = new Size(774, 197);
+            tableLayoutPanel6.Size = new Size(774, 173);
             tableLayoutPanel6.TabIndex = 9;
             // 
             // BorrarMantenimientoButton
@@ -910,12 +913,12 @@
             BorrarMantenimientoButton.Dock = DockStyle.Fill;
             BorrarMantenimientoButton.HighEmphasis = true;
             BorrarMantenimientoButton.Icon = null;
-            BorrarMantenimientoButton.Location = new Point(312, 159);
+            BorrarMantenimientoButton.Location = new Point(312, 140);
             BorrarMantenimientoButton.Margin = new Padding(4, 6, 4, 6);
             BorrarMantenimientoButton.MouseState = MaterialSkin.MouseState.HOVER;
             BorrarMantenimientoButton.Name = "BorrarMantenimientoButton";
             BorrarMantenimientoButton.NoAccentTextColor = Color.Empty;
-            BorrarMantenimientoButton.Size = new Size(146, 17);
+            BorrarMantenimientoButton.Size = new Size(146, 13);
             BorrarMantenimientoButton.TabIndex = 2;
             BorrarMantenimientoButton.Text = "Borrar";
             BorrarMantenimientoButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -931,12 +934,12 @@
             ActualizarMantenimientoButton.Dock = DockStyle.Fill;
             ActualizarMantenimientoButton.HighEmphasis = true;
             ActualizarMantenimientoButton.Icon = null;
-            ActualizarMantenimientoButton.Location = new Point(158, 159);
+            ActualizarMantenimientoButton.Location = new Point(158, 140);
             ActualizarMantenimientoButton.Margin = new Padding(4, 6, 4, 6);
             ActualizarMantenimientoButton.MouseState = MaterialSkin.MouseState.HOVER;
             ActualizarMantenimientoButton.Name = "ActualizarMantenimientoButton";
             ActualizarMantenimientoButton.NoAccentTextColor = Color.Empty;
-            ActualizarMantenimientoButton.Size = new Size(146, 17);
+            ActualizarMantenimientoButton.Size = new Size(146, 13);
             ActualizarMantenimientoButton.TabIndex = 1;
             ActualizarMantenimientoButton.Text = "Actualizar";
             ActualizarMantenimientoButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -950,10 +953,10 @@
             materialLabel10.Depth = 0;
             materialLabel10.Dock = DockStyle.Left;
             materialLabel10.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel10.Location = new Point(3, 105);
+            materialLabel10.Location = new Point(3, 92);
             materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel10.Name = "materialLabel10";
-            materialLabel10.Size = new Size(33, 39);
+            materialLabel10.Size = new Size(33, 34);
             materialLabel10.TabIndex = 5;
             materialLabel10.Text = "Tipo";
             // 
@@ -965,12 +968,12 @@
             CrearMantenimientoButton.Dock = DockStyle.Fill;
             CrearMantenimientoButton.HighEmphasis = true;
             CrearMantenimientoButton.Icon = null;
-            CrearMantenimientoButton.Location = new Point(4, 159);
+            CrearMantenimientoButton.Location = new Point(4, 140);
             CrearMantenimientoButton.Margin = new Padding(4, 6, 4, 6);
             CrearMantenimientoButton.MouseState = MaterialSkin.MouseState.HOVER;
             CrearMantenimientoButton.Name = "CrearMantenimientoButton";
             CrearMantenimientoButton.NoAccentTextColor = Color.Empty;
-            CrearMantenimientoButton.Size = new Size(146, 17);
+            CrearMantenimientoButton.Size = new Size(146, 13);
             CrearMantenimientoButton.TabIndex = 0;
             CrearMantenimientoButton.Text = "Crear";
             CrearMantenimientoButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -984,10 +987,10 @@
             materialLabel11.Depth = 0;
             materialLabel11.Dock = DockStyle.Left;
             materialLabel11.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel11.Location = new Point(3, 57);
+            materialLabel11.Location = new Point(3, 50);
             materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel11.Name = "materialLabel11";
-            materialLabel11.Size = new Size(44, 39);
+            materialLabel11.Size = new Size(44, 34);
             materialLabel11.TabIndex = 4;
             materialLabel11.Text = "Fecha";
             // 
@@ -997,10 +1000,10 @@
             materialLabel12.Depth = 0;
             materialLabel12.Dock = DockStyle.Left;
             materialLabel12.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel12.Location = new Point(3, 9);
+            materialLabel12.Location = new Point(3, 8);
             materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel12.Name = "materialLabel12";
-            materialLabel12.Size = new Size(50, 39);
+            materialLabel12.Size = new Size(50, 34);
             materialLabel12.TabIndex = 3;
             materialLabel12.Text = "Equipo";
             // 
@@ -1009,7 +1012,7 @@
             materialLabel13.AutoSize = true;
             materialLabel13.Depth = 0;
             materialLabel13.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel13.Location = new Point(311, 9);
+            materialLabel13.Location = new Point(311, 8);
             materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel13.Name = "materialLabel13";
             materialLabel13.Size = new Size(84, 19);
@@ -1021,7 +1024,7 @@
             materialLabel14.AutoSize = true;
             materialLabel14.Depth = 0;
             materialLabel14.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel14.Location = new Point(311, 57);
+            materialLabel14.Location = new Point(311, 50);
             materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel14.Name = "materialLabel14";
             materialLabel14.Size = new Size(50, 19);
@@ -1037,7 +1040,7 @@
             DescripcionMantenimientoTextBox.Dock = DockStyle.Fill;
             DescripcionMantenimientoTextBox.Font = new Font("Segoe UI", 8F);
             DescripcionMantenimientoTextBox.HideSelection = true;
-            DescripcionMantenimientoTextBox.Location = new Point(465, 12);
+            DescripcionMantenimientoTextBox.Location = new Point(465, 11);
             DescripcionMantenimientoTextBox.MaxLength = 32767;
             DescripcionMantenimientoTextBox.MouseState = MaterialSkin.MouseState.OUT;
             DescripcionMantenimientoTextBox.Name = "DescripcionMantenimientoTextBox";
@@ -1048,7 +1051,7 @@
             DescripcionMantenimientoTextBox.SelectionLength = 0;
             DescripcionMantenimientoTextBox.SelectionStart = 0;
             DescripcionMantenimientoTextBox.ShortcutsEnabled = true;
-            DescripcionMantenimientoTextBox.Size = new Size(148, 33);
+            DescripcionMantenimientoTextBox.Size = new Size(148, 28);
             DescripcionMantenimientoTextBox.TabIndex = 12;
             DescripcionMantenimientoTextBox.TabStop = false;
             DescripcionMantenimientoTextBox.TextAlign = HorizontalAlignment.Left;
@@ -1069,7 +1072,7 @@
             EstadoMantenimientoComboBox.FormattingEnabled = true;
             EstadoMantenimientoComboBox.IntegralHeight = false;
             EstadoMantenimientoComboBox.ItemHeight = 43;
-            EstadoMantenimientoComboBox.Location = new Point(465, 60);
+            EstadoMantenimientoComboBox.Location = new Point(465, 53);
             EstadoMantenimientoComboBox.MaxDropDownItems = 4;
             EstadoMantenimientoComboBox.MouseState = MaterialSkin.MouseState.OUT;
             EstadoMantenimientoComboBox.Name = "EstadoMantenimientoComboBox";
@@ -1092,7 +1095,7 @@
             EquipoComboBox.FormattingEnabled = true;
             EquipoComboBox.IntegralHeight = false;
             EquipoComboBox.ItemHeight = 43;
-            EquipoComboBox.Location = new Point(157, 12);
+            EquipoComboBox.Location = new Point(157, 11);
             EquipoComboBox.MaxDropDownItems = 4;
             EquipoComboBox.MouseState = MaterialSkin.MouseState.OUT;
             EquipoComboBox.Name = "EquipoComboBox";
@@ -1103,7 +1106,7 @@
             // FechaDateTimePicker
             // 
             FechaDateTimePicker.Dock = DockStyle.Fill;
-            FechaDateTimePicker.Location = new Point(157, 60);
+            FechaDateTimePicker.Location = new Point(157, 53);
             FechaDateTimePicker.Name = "FechaDateTimePicker";
             FechaDateTimePicker.Size = new Size(148, 23);
             FechaDateTimePicker.TabIndex = 18;
@@ -1123,7 +1126,7 @@
             TipoMantenimientoComboBox.FormattingEnabled = true;
             TipoMantenimientoComboBox.IntegralHeight = false;
             TipoMantenimientoComboBox.ItemHeight = 43;
-            TipoMantenimientoComboBox.Location = new Point(157, 108);
+            TipoMantenimientoComboBox.Location = new Point(157, 95);
             TipoMantenimientoComboBox.MaxDropDownItems = 4;
             TipoMantenimientoComboBox.MouseState = MaterialSkin.MouseState.OUT;
             TipoMantenimientoComboBox.Name = "TipoMantenimientoComboBox";
@@ -1153,25 +1156,10 @@
             tabPage4.Location = new Point(4, 24);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(786, 395);
+            tabPage4.Size = new Size(786, 355);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Usuarios";
             tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // materialTabSelector4
-            // 
-            materialTabSelector4.BaseTabControl = materialTabControl1;
-            materialTabSelector4.CharacterCasing = MaterialSkin.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
-            materialTabSelector4.Depth = 0;
-            materialTabSelector4.Dock = DockStyle.Top;
-            materialTabSelector4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTabSelector4.Location = new Point(3, 3);
-            materialTabSelector4.Margin = new Padding(0);
-            materialTabSelector4.MouseState = MaterialSkin.MouseState.HOVER;
-            materialTabSelector4.Name = "materialTabSelector4";
-            materialTabSelector4.Size = new Size(780, 50);
-            materialTabSelector4.TabIndex = 3;
-            materialTabSelector4.Text = "materialTabSelector4";
             // 
             // tableLayoutPanel7
             // 
@@ -1186,17 +1174,18 @@
             tableLayoutPanel7.RowCount = 2;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tableLayoutPanel7.Size = new Size(780, 339);
+            tableLayoutPanel7.Size = new Size(780, 299);
             tableLayoutPanel7.TabIndex = 5;
             // 
             // UsuariosDataGridView
             // 
             UsuariosDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             UsuariosDataGridView.Dock = DockStyle.Fill;
-            UsuariosDataGridView.Location = new Point(3, 206);
+            UsuariosDataGridView.Location = new Point(3, 182);
             UsuariosDataGridView.Name = "UsuariosDataGridView";
-            UsuariosDataGridView.Size = new Size(774, 130);
+            UsuariosDataGridView.Size = new Size(774, 114);
             UsuariosDataGridView.TabIndex = 0;
+            UsuariosDataGridView.SelectionChanged += UsuariosDataGridView_SelectionChanged;
             // 
             // panel4
             // 
@@ -1204,7 +1193,7 @@
             panel4.Dock = DockStyle.Fill;
             panel4.Location = new Point(3, 3);
             panel4.Name = "panel4";
-            panel4.Size = new Size(774, 197);
+            panel4.Size = new Size(774, 173);
             panel4.TabIndex = 1;
             // 
             // tableLayoutPanel8
@@ -1241,7 +1230,7 @@
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            tableLayoutPanel8.Size = new Size(774, 197);
+            tableLayoutPanel8.Size = new Size(774, 173);
             tableLayoutPanel8.TabIndex = 9;
             // 
             // BorrarUsuarioButton
@@ -1252,17 +1241,18 @@
             BorrarUsuarioButton.Dock = DockStyle.Fill;
             BorrarUsuarioButton.HighEmphasis = true;
             BorrarUsuarioButton.Icon = null;
-            BorrarUsuarioButton.Location = new Point(312, 159);
+            BorrarUsuarioButton.Location = new Point(312, 140);
             BorrarUsuarioButton.Margin = new Padding(4, 6, 4, 6);
             BorrarUsuarioButton.MouseState = MaterialSkin.MouseState.HOVER;
             BorrarUsuarioButton.Name = "BorrarUsuarioButton";
             BorrarUsuarioButton.NoAccentTextColor = Color.Empty;
-            BorrarUsuarioButton.Size = new Size(146, 17);
+            BorrarUsuarioButton.Size = new Size(146, 13);
             BorrarUsuarioButton.TabIndex = 2;
             BorrarUsuarioButton.Text = "Borrar";
             BorrarUsuarioButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             BorrarUsuarioButton.UseAccentColor = false;
             BorrarUsuarioButton.UseVisualStyleBackColor = true;
+            BorrarUsuarioButton.Click += BorrarUsuarioButton_Click;
             // 
             // ActualizarUsuarioButton
             // 
@@ -1272,17 +1262,18 @@
             ActualizarUsuarioButton.Dock = DockStyle.Fill;
             ActualizarUsuarioButton.HighEmphasis = true;
             ActualizarUsuarioButton.Icon = null;
-            ActualizarUsuarioButton.Location = new Point(158, 159);
+            ActualizarUsuarioButton.Location = new Point(158, 140);
             ActualizarUsuarioButton.Margin = new Padding(4, 6, 4, 6);
             ActualizarUsuarioButton.MouseState = MaterialSkin.MouseState.HOVER;
             ActualizarUsuarioButton.Name = "ActualizarUsuarioButton";
             ActualizarUsuarioButton.NoAccentTextColor = Color.Empty;
-            ActualizarUsuarioButton.Size = new Size(146, 17);
+            ActualizarUsuarioButton.Size = new Size(146, 13);
             ActualizarUsuarioButton.TabIndex = 1;
             ActualizarUsuarioButton.Text = "Actualizar";
             ActualizarUsuarioButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             ActualizarUsuarioButton.UseAccentColor = false;
             ActualizarUsuarioButton.UseVisualStyleBackColor = true;
+            ActualizarUsuarioButton.Click += ActualizarUsuarioButton_Click;
             // 
             // materialLabel15
             // 
@@ -1290,10 +1281,10 @@
             materialLabel15.Depth = 0;
             materialLabel15.Dock = DockStyle.Left;
             materialLabel15.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel15.Location = new Point(3, 105);
+            materialLabel15.Location = new Point(3, 92);
             materialLabel15.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel15.Name = "materialLabel15";
-            materialLabel15.Size = new Size(24, 39);
+            materialLabel15.Size = new Size(24, 34);
             materialLabel15.TabIndex = 5;
             materialLabel15.Text = "Rol";
             // 
@@ -1305,17 +1296,18 @@
             CrearUsuarioButton.Dock = DockStyle.Fill;
             CrearUsuarioButton.HighEmphasis = true;
             CrearUsuarioButton.Icon = null;
-            CrearUsuarioButton.Location = new Point(4, 159);
+            CrearUsuarioButton.Location = new Point(4, 140);
             CrearUsuarioButton.Margin = new Padding(4, 6, 4, 6);
             CrearUsuarioButton.MouseState = MaterialSkin.MouseState.HOVER;
             CrearUsuarioButton.Name = "CrearUsuarioButton";
             CrearUsuarioButton.NoAccentTextColor = Color.Empty;
-            CrearUsuarioButton.Size = new Size(146, 17);
+            CrearUsuarioButton.Size = new Size(146, 13);
             CrearUsuarioButton.TabIndex = 0;
             CrearUsuarioButton.Text = "Crear";
             CrearUsuarioButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             CrearUsuarioButton.UseAccentColor = false;
             CrearUsuarioButton.UseVisualStyleBackColor = true;
+            CrearUsuarioButton.Click += CrearUsuarioButton_Click;
             // 
             // materialLabel16
             // 
@@ -1323,10 +1315,10 @@
             materialLabel16.Depth = 0;
             materialLabel16.Dock = DockStyle.Left;
             materialLabel16.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel16.Location = new Point(3, 57);
+            materialLabel16.Location = new Point(3, 50);
             materialLabel16.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel16.Name = "materialLabel16";
-            materialLabel16.Size = new Size(47, 39);
+            materialLabel16.Size = new Size(47, 34);
             materialLabel16.TabIndex = 4;
             materialLabel16.Text = "Correo";
             // 
@@ -1336,10 +1328,10 @@
             materialLabel17.Depth = 0;
             materialLabel17.Dock = DockStyle.Left;
             materialLabel17.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel17.Location = new Point(3, 9);
+            materialLabel17.Location = new Point(3, 8);
             materialLabel17.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel17.Name = "materialLabel17";
-            materialLabel17.Size = new Size(57, 39);
+            materialLabel17.Size = new Size(57, 34);
             materialLabel17.TabIndex = 3;
             materialLabel17.Text = "Nombre";
             // 
@@ -1348,7 +1340,7 @@
             materialLabel18.AutoSize = true;
             materialLabel18.Depth = 0;
             materialLabel18.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel18.Location = new Point(311, 9);
+            materialLabel18.Location = new Point(311, 8);
             materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel18.Name = "materialLabel18";
             materialLabel18.Size = new Size(82, 19);
@@ -1360,7 +1352,7 @@
             materialLabel19.AutoSize = true;
             materialLabel19.Depth = 0;
             materialLabel19.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel19.Location = new Point(311, 57);
+            materialLabel19.Location = new Point(311, 50);
             materialLabel19.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel19.Name = "materialLabel19";
             materialLabel19.Size = new Size(63, 19);
@@ -1373,9 +1365,10 @@
             ContraseñaUsuarioTextBox.BackgroundImageLayout = ImageLayout.None;
             ContraseñaUsuarioTextBox.CharacterCasing = CharacterCasing.Normal;
             ContraseñaUsuarioTextBox.Depth = 0;
+            ContraseñaUsuarioTextBox.Dock = DockStyle.Fill;
             ContraseñaUsuarioTextBox.Font = new Font("Segoe UI", 8F);
             ContraseñaUsuarioTextBox.HideSelection = true;
-            ContraseñaUsuarioTextBox.Location = new Point(465, 12);
+            ContraseñaUsuarioTextBox.Location = new Point(465, 11);
             ContraseñaUsuarioTextBox.MaxLength = 32767;
             ContraseñaUsuarioTextBox.MouseState = MaterialSkin.MouseState.OUT;
             ContraseñaUsuarioTextBox.Name = "ContraseñaUsuarioTextBox";
@@ -1386,7 +1379,7 @@
             ContraseñaUsuarioTextBox.SelectionLength = 0;
             ContraseñaUsuarioTextBox.SelectionStart = 0;
             ContraseñaUsuarioTextBox.ShortcutsEnabled = true;
-            ContraseñaUsuarioTextBox.Size = new Size(148, 33);
+            ContraseñaUsuarioTextBox.Size = new Size(148, 28);
             ContraseñaUsuarioTextBox.TabIndex = 12;
             ContraseñaUsuarioTextBox.TabStop = false;
             ContraseñaUsuarioTextBox.TextAlign = HorizontalAlignment.Left;
@@ -1407,7 +1400,7 @@
             EmpresaUsuarioComboBox.FormattingEnabled = true;
             EmpresaUsuarioComboBox.IntegralHeight = false;
             EmpresaUsuarioComboBox.ItemHeight = 43;
-            EmpresaUsuarioComboBox.Location = new Point(465, 60);
+            EmpresaUsuarioComboBox.Location = new Point(465, 53);
             EmpresaUsuarioComboBox.MaxDropDownItems = 4;
             EmpresaUsuarioComboBox.MouseState = MaterialSkin.MouseState.OUT;
             EmpresaUsuarioComboBox.Name = "EmpresaUsuarioComboBox";
@@ -1430,7 +1423,7 @@
             RolUsuarioComboBox.FormattingEnabled = true;
             RolUsuarioComboBox.IntegralHeight = false;
             RolUsuarioComboBox.ItemHeight = 43;
-            RolUsuarioComboBox.Location = new Point(157, 108);
+            RolUsuarioComboBox.Location = new Point(157, 95);
             RolUsuarioComboBox.MaxDropDownItems = 4;
             RolUsuarioComboBox.MouseState = MaterialSkin.MouseState.OUT;
             RolUsuarioComboBox.Name = "RolUsuarioComboBox";
@@ -1444,9 +1437,10 @@
             NombreUsuarioTextBox.BackgroundImageLayout = ImageLayout.None;
             NombreUsuarioTextBox.CharacterCasing = CharacterCasing.Normal;
             NombreUsuarioTextBox.Depth = 0;
+            NombreUsuarioTextBox.Dock = DockStyle.Fill;
             NombreUsuarioTextBox.Font = new Font("Segoe UI", 8F);
             NombreUsuarioTextBox.HideSelection = true;
-            NombreUsuarioTextBox.Location = new Point(157, 12);
+            NombreUsuarioTextBox.Location = new Point(157, 11);
             NombreUsuarioTextBox.MaxLength = 32767;
             NombreUsuarioTextBox.MouseState = MaterialSkin.MouseState.OUT;
             NombreUsuarioTextBox.Name = "NombreUsuarioTextBox";
@@ -1457,7 +1451,7 @@
             NombreUsuarioTextBox.SelectionLength = 0;
             NombreUsuarioTextBox.SelectionStart = 0;
             NombreUsuarioTextBox.ShortcutsEnabled = true;
-            NombreUsuarioTextBox.Size = new Size(148, 33);
+            NombreUsuarioTextBox.Size = new Size(148, 28);
             NombreUsuarioTextBox.TabIndex = 20;
             NombreUsuarioTextBox.TabStop = false;
             NombreUsuarioTextBox.TextAlign = HorizontalAlignment.Left;
@@ -1469,9 +1463,10 @@
             CorreoUsuarioTextBox.BackgroundImageLayout = ImageLayout.None;
             CorreoUsuarioTextBox.CharacterCasing = CharacterCasing.Normal;
             CorreoUsuarioTextBox.Depth = 0;
+            CorreoUsuarioTextBox.Dock = DockStyle.Fill;
             CorreoUsuarioTextBox.Font = new Font("Segoe UI", 8F);
             CorreoUsuarioTextBox.HideSelection = true;
-            CorreoUsuarioTextBox.Location = new Point(157, 60);
+            CorreoUsuarioTextBox.Location = new Point(157, 53);
             CorreoUsuarioTextBox.MaxLength = 32767;
             CorreoUsuarioTextBox.MouseState = MaterialSkin.MouseState.OUT;
             CorreoUsuarioTextBox.Name = "CorreoUsuarioTextBox";
@@ -1482,22 +1477,49 @@
             CorreoUsuarioTextBox.SelectionLength = 0;
             CorreoUsuarioTextBox.SelectionStart = 0;
             CorreoUsuarioTextBox.ShortcutsEnabled = true;
-            CorreoUsuarioTextBox.Size = new Size(148, 33);
+            CorreoUsuarioTextBox.Size = new Size(148, 28);
             CorreoUsuarioTextBox.TabIndex = 21;
             CorreoUsuarioTextBox.TabStop = false;
             CorreoUsuarioTextBox.TextAlign = HorizontalAlignment.Left;
             CorreoUsuarioTextBox.UseSystemPasswordChar = false;
+            // 
+            // materialTabSelector4
+            // 
+            materialTabSelector4.BaseTabControl = materialTabControl1;
+            materialTabSelector4.CharacterCasing = MaterialSkin.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
+            materialTabSelector4.Depth = 0;
+            materialTabSelector4.Dock = DockStyle.Top;
+            materialTabSelector4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialTabSelector4.Location = new Point(3, 3);
+            materialTabSelector4.Margin = new Padding(0);
+            materialTabSelector4.MouseState = MaterialSkin.MouseState.HOVER;
+            materialTabSelector4.Name = "materialTabSelector4";
+            materialTabSelector4.Size = new Size(780, 50);
+            materialTabSelector4.TabIndex = 3;
+            materialTabSelector4.Text = "materialTabSelector4";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(60, 60);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // InicioForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(materialTabControl1);
-            FormStyle = FormStyles.ActionBar_None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "InicioForm";
-            Padding = new Padding(3, 24, 3, 3);
-            Text = "Inicio";
+            Text = " ";
             materialTabControl1.ResumeLayout(false);
             tabPageEmpresa.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
@@ -1523,6 +1545,7 @@
             panel4.ResumeLayout(false);
             tableLayoutPanel8.ResumeLayout(false);
             tableLayoutPanel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -1603,5 +1626,6 @@
         private MaterialSkin.Controls.MaterialComboBox RolUsuarioComboBox;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 NombreUsuarioTextBox;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 CorreoUsuarioTextBox;
+        private PictureBox pictureBox1;
     }
 }
